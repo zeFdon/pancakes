@@ -169,6 +169,15 @@
     nav a:hover::after,
     nav a:focus-visible::after { transform: scaleX(1); }
 
+    .nav-toggle,
+    .mobile-nav-overlay {
+      display: none;
+    }
+
+    body.is-menu-open {
+      overflow: hidden;
+    }
+
     main { overflow: hidden; }
 
     .section, .hero {
@@ -834,13 +843,166 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       .site-header {
-        position: static;
-        align-items: flex-start;
-        flex-direction: column;
+        position: sticky;
+        top: 0;
+        flex-direction: row;
+        align-items: center;
+        padding: .8rem 1rem;
       }
 
+      .brand {
+        font-size: 1.05rem;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: .55rem;
+        min-height: 2.8rem;
+        width: auto;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: .65rem .9rem;
+        background: rgba(255, 247, 232, .92);
+        color: var(--cocoa);
+        box-shadow: 0 12px 28px rgba(72, 35, 18, .12);
+      }
+
+      .nav-toggle:hover {
+        background: rgba(255, 247, 232, .98);
+      }
+
+      .nav-toggle__text {
+        font-weight: 900;
+      }
+
+      .nav-toggle__icon {
+        display: grid;
+        gap: 4px;
+        width: 18px;
+      }
+
+      .nav-toggle__icon span {
+        display: block;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        transition: transform .22s ease, opacity .22s ease;
+      }
+
+      body.is-menu-open .nav-toggle__icon span:first-child {
+        transform: translateY(3px) rotate(38deg);
+      }
+
+      body.is-menu-open .nav-toggle__icon span:last-child {
+        transform: translateY(-3px) rotate(-38deg);
+      }
+
+      .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        width: 100%;
+        min-height: 100vh;
+        border: 0;
+        background: rgba(45, 27, 19, .34);
+        backdrop-filter: blur(4px);
+      }
+
+      .mobile-nav-overlay:hover {
+        transform: none;
+        background: rgba(45, 27, 19, .34);
+      }
+
+      body.is-menu-open .mobile-nav-overlay {
+        display: block;
+      }
+
+      .site-header nav {
+        position: fixed;
+        z-index: 9;
+        top: 4.6rem;
+        left: 1rem;
+        right: 1rem;
+        display: grid;
+        gap: .45rem;
+        padding: 1rem;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: linear-gradient(145deg, rgba(255, 247, 232, .98), rgba(248, 236, 216, .98));
+        box-shadow: 0 28px 70px rgba(45, 27, 19, .28);
+        transform: translateY(-.8rem) scale(.97);
+        transform-origin: top right;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform .22s ease, opacity .22s ease;
+      }
+
+      .site-header nav::before {
+        content: "Івано-Франківськ · запуск доставки";
+        color: var(--cherry);
+        font-size: .72rem;
+        font-weight: 900;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        padding: .35rem .45rem .55rem;
+      }
+
+      body.is-menu-open .site-header nav {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .site-header nav a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 3.2rem;
+        border-radius: 18px;
+        padding: .8rem .95rem;
+        background: rgba(255, 255, 255, .42);
+        border: 1px solid transparent;
+        font-size: 1.05rem;
+      }
+
+      .site-header nav a::after {
+        content: "→";
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        color: var(--caramel);
+        font-weight: 900;
+        transform: none;
+      }
+
+      .site-header nav a:hover,
+      .site-header nav a:focus-visible {
+        border-color: rgba(143, 35, 51, .28);
+        background: rgba(255, 255, 255, .72);
+      }
+
+      .site-header nav a[href="#preorder"] {
+        background: var(--cherry);
+        color: #fff;
+        box-shadow: 0 14px 28px rgba(143, 35, 51, .24);
+      }
+
+      .site-header nav a[href="#preorder"]::after {
+        color: #fff;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
       nav {
         justify-content: flex-start;
         font-size: .9rem;
@@ -897,7 +1059,11 @@
   <a class="skip-link" href="#main">Перейти до змісту</a>
   <header class="site-header" aria-label="Головна навігація">
     <a class="brand" href="#top" aria-label="Добрі млинці, головна">Добрі млинці</a>
-    <nav aria-label="Розділи сторінки">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__text">Меню</span>
+      <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+    </button>
+    <nav id="site-nav" aria-label="Розділи сторінки">
       <a href="#menu">Меню</a>
       <a href="#mission">Місія</a>
       <a href="#delivery">Доставка</a>
@@ -905,6 +1071,8 @@
       <a href="#preorder">Передзамовлення</a>
     </nav>
   </header>
+
+  <button class="mobile-nav-overlay" type="button" aria-label="Закрити меню" hidden></button>
 
   <main id="main">
     <section id="top" class="hero" aria-labelledby="hero-title">
@@ -1072,6 +1240,41 @@
 
       if (img.complete && img.naturalWidth === 0) {
         markMissing();
+      }
+    });
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('#site-nav');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+
+    const setMenuOpen = (isOpen) => {
+      document.body.classList.toggle('is-menu-open', isOpen);
+      navToggle?.setAttribute('aria-expanded', String(isOpen));
+
+      if (mobileNavOverlay) {
+        mobileNavOverlay.hidden = !isOpen;
+      }
+    };
+
+    navToggle?.addEventListener('click', () => {
+      setMenuOpen(!document.body.classList.contains('is-menu-open'));
+    });
+
+    mobileNavOverlay?.addEventListener('click', () => setMenuOpen(false));
+
+    siteNav?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 761px)').matches) {
+        setMenuOpen(false);
       }
     });
   </script>
