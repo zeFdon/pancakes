@@ -35,7 +35,7 @@ Expected: `False`
 
 - [ ] **Step 2: Confirm required generated-image filenames are not yet represented**
 
-Run: `rg "hero-mlyntsi-delivery|healthy-line|classic-line|social-mission-kitchen|delivery-packaging" index.html`
+Run: `Select-String -Path "index.html" -Pattern "hero-mlyntsi-delivery|healthy-line|classic-line|social-mission-kitchen|delivery-packaging"`
 
 Expected: command fails because `index.html` does not exist yet.
 
@@ -426,25 +426,25 @@ Expected: `True`
 
 - [ ] **Step 2: Verify all required Ukrainian content sections are present**
 
-Run: `rg "Добрі млинці|Передзамовити запуск|Healthy|Класика|Купуєш млинці|Dark kitchen|Чому Франківськ" index.html`
+Run: `Select-String -Path "index.html" -Pattern "Добрі млинці|Передзамовити запуск|Healthy|Класика|Купуєш млинці|Dark kitchen|Чому Франківськ"`
 
 Expected: matches for every phrase.
 
 - [ ] **Step 3: Verify all generated-image slots are present**
 
-Run: `rg "assets/images/hero-mlyntsi-delivery.jpg|assets/images/healthy-line.jpg|assets/images/classic-line.jpg|assets/images/social-mission-kitchen.jpg|assets/images/delivery-packaging.jpg" index.html`
+Run: `Select-String -Path "index.html" -Pattern "assets/images/hero-mlyntsi-delivery.jpg|assets/images/healthy-line.jpg|assets/images/classic-line.jpg|assets/images/social-mission-kitchen.jpg|assets/images/delivery-packaging.jpg"`
 
 Expected: matches for all five filenames.
 
 - [ ] **Step 4: Verify semantic landmarks and accessibility basics**
 
-Run: `rg "<header|<main|<section|<footer|alt=|aria-labelledby|skip-link|label" index.html`
+Run: `Select-String -Path "index.html" -Pattern "<header|<main|<section|<footer|alt=|aria-labelledby|skip-link|label"`
 
 Expected: matches for all listed patterns.
 
 - [ ] **Step 5: Verify responsive CSS exists**
 
-Run: `rg "@media \(max-width: 900px\)|@media \(max-width: 640px\)|prefers-reduced-motion" index.html`
+Run: `Select-String -Path "index.html" -Pattern "@media \(max-width: 900px\)|@media \(max-width: 640px\)|prefers-reduced-motion"`
 
 Expected: matches for all three media query patterns.
 
