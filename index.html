@@ -907,7 +907,11 @@
         width: 100%;
         min-height: 100vh;
         border: 0;
+        border-radius: 0;
+        padding: 0;
         background: rgba(45, 27, 19, .34);
+        box-shadow: none;
+        appearance: none;
         backdrop-filter: blur(4px);
       }
 
@@ -1246,35 +1250,76 @@
     const navToggle = document.querySelector('.nav-toggle');
     const siteNav = document.querySelector('#site-nav');
     const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+    const mobileMenuQuery = window.matchMedia('(max-width: 760px)');
+    const isMenuOpen = () => document.body.classList.contains('is-menu-open');
+    const focusableMenuItems = () => [
+      navToggle,
+      ...(siteNav?.querySelectorAll('a') ?? []),
+    ].filter(Boolean);
 
-    const setMenuOpen = (isOpen) => {
+    const setMenuOpen = (isOpen, { returnFocus = false } = {}) => {
+      const wasOpen = isMenuOpen();
+
       document.body.classList.toggle('is-menu-open', isOpen);
       navToggle?.setAttribute('aria-expanded', String(isOpen));
 
       if (mobileNavOverlay) {
         mobileNavOverlay.hidden = !isOpen;
       }
+
+      if (isOpen) {
+        siteNav?.querySelector('a')?.focus();
+      } else if (returnFocus && wasOpen) {
+        navToggle?.focus();
+      }
     };
 
     navToggle?.addEventListener('click', () => {
-      setMenuOpen(!document.body.classList.contains('is-menu-open'));
+      const shouldOpen = !isMenuOpen();
+      setMenuOpen(shouldOpen, { returnFocus: !shouldOpen });
     });
 
-    mobileNavOverlay?.addEventListener('click', () => setMenuOpen(false));
+    mobileNavOverlay?.addEventListener('click', () => setMenuOpen(false, { returnFocus: true }));
 
     siteNav?.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => setMenuOpen(false));
     });
 
     window.addEventListener('keydown', (event) => {
+      if (!isMenuOpen()) {
+        return;
+      }
+
       if (event.key === 'Escape') {
-        setMenuOpen(false);
+        setMenuOpen(false, { returnFocus: true });
+        return;
+      }
+
+      if (event.key === 'Tab') {
+        const menuItems = focusableMenuItems();
+        const firstItem = menuItems[0];
+        const lastItem = menuItems[menuItems.length - 1];
+
+        if (!firstItem || !lastItem) {
+          return;
+        }
+
+        if (event.shiftKey && document.activeElement === firstItem) {
+          event.preventDefault();
+          lastItem.focus();
+        } else if (!event.shiftKey && document.activeElement === lastItem) {
+          event.preventDefault();
+          firstItem.focus();
+        } else if (!menuItems.includes(document.activeElement)) {
+          event.preventDefault();
+          firstItem.focus();
+        }
       }
     });
 
     window.addEventListener('resize', () => {
-      if (window.matchMedia('(min-width: 761px)').matches) {
-        setMenuOpen(false);
+      if (!mobileMenuQuery.matches) {
+        setMenuOpen(false, { returnFocus: true });
       }
     });
   </script>
