@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Добрі млинці | Млинарня Івано-Франківськ</title>
+  <meta name="description" content="Передзамовлення запуску теплої млинарні з доставкою млинців в Івано-Франківську: healthy-лінійка, класика та соціальна місія.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700;7..72,800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800;6..12,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f8ecd8;
+      --paper: #fff7e8;
+      --paper-strong: #fffaf0;
+      --caramel: #c27a31;
+      --toast: #e5b66f;
+      --toast-dark: #9b5a24;
+      --cherry: #8f2333;
+      --cherry-dark: #681522;
+      --green: #6f8b55;
+      --green-pale: #dce7bf;
+      --cocoa: #2d1b13;
+      --muted: #765f50;
+      --line: rgba(45, 27, 19, .18);
+      --shadow: 0 24px 70px rgba(72, 35, 18, .18);
+      --soft-shadow: 0 14px 34px rgba(72, 35, 18, .12);
+      --radius-xl: 34px;
+      --radius-md: 22px;
+      --radius-sm: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--cream);
+    }
+
+    body {
+      margin: 0;
+      color: var(--cocoa);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(229, 182, 111, .48), transparent 25rem),
+        radial-gradient(circle at 92% 12%, rgba(143, 35, 51, .13), transparent 22rem),
+        radial-gradient(circle at 18% 78%, rgba(111, 139, 85, .16), transparent 28rem),
+        linear-gradient(135deg, var(--cream), #f4dfbd 54%, #f9efd9);
+      font-family: "Nunito Sans", sans-serif;
+      line-height: 1.6;
+      min-width: 320px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .12;
+      background-image:
+        radial-gradient(rgba(45, 27, 19, .56) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 27, 19, .16) 1px, transparent 1px);
+      background-size: 18px 18px, 86px 100%;
+      mix-blend-mode: multiply;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto -8rem -10rem auto;
+      z-index: -1;
+      width: min(44vw, 34rem);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        repeating-radial-gradient(circle, rgba(143, 35, 51, .12) 0 1px, transparent 1px 18px),
+        radial-gradient(circle, rgba(229, 182, 111, .44), transparent 68%);
+      filter: blur(.2px);
+      pointer-events: none;
+    }
+
+    a { color: inherit; }
+
+    img { max-width: 100%; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 30;
+      background: var(--cherry);
+      color: #fff;
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 12px 26px rgba(143, 35, 51, .3);
+    }
+
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem clamp(1rem, 4vw, 4rem);
+      background: rgba(248, 236, 216, .84);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-family: "Literata", serif;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand::before {
+      content: "";
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 34% 30%, #f9d18a 0 18%, transparent 19%),
+        radial-gradient(circle at 70% 66%, rgba(143, 35, 51, .42) 0 12%, transparent 13%),
+        linear-gradient(135deg, #f3c16e, #bd702a);
+      box-shadow: inset 0 -5px 10px rgba(45, 27, 19, .13), 0 8px 18px rgba(72, 35, 18, .16);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: clamp(.5rem, 2vw, 1.3rem);
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      font-size: .94rem;
+      font-weight: 900;
+      color: rgba(45, 27, 19, .86);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -.25rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--cherry);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .22s ease;
+    }
+
+    nav a:hover::after,
+    nav a:focus-visible::after { transform: scaleX(1); }
+
+    main { overflow: hidden; }
+
+    .section, .hero {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(320px, .82fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 5rem);
+      min-height: calc(100vh - 74px);
+    }
+
+    .hero::before {
+      content: "Свіжі партії / доставка містом / соціальна млинарня";
+      position: absolute;
+      left: clamp(-2rem, -4vw, -1rem);
+      top: clamp(3rem, 8vw, 6rem);
+      color: rgba(45, 27, 19, .28);
+      font-family: "Literata", serif;
+      font-size: clamp(.75rem, 1.1vw, .95rem);
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .hero-copy { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin: 0 0 .85rem;
+      color: var(--cherry);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 2rem;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: "Literata", serif;
+      line-height: .98;
+      letter-spacing: -.055em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 8.6ch;
+      font-size: clamp(3.35rem, 9vw, 7.65rem);
+    }
+
+    h2 {
+      max-width: 11.6ch;
+      font-size: clamp(2.25rem, 5vw, 4.75rem);
+    }
+
+    h3 { font-size: clamp(1.65rem, 3vw, 2.45rem); }
+
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-lead {
+      max-width: 42rem;
+      margin: 1.35rem 0 0;
+      font-size: clamp(1.14rem, 2vw, 1.46rem);
+      color: rgba(45, 27, 19, .75);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin: 2.1rem 0;
+    }
+
+    .button, button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.25rem;
+      border: 0;
+      border-radius: 999px;
+      padding: .9rem 1.35rem;
+      font: 900 1rem "Nunito Sans", sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+    }
+
+    .button:hover, button:hover { transform: translateY(-2px); }
+
+    .button:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(143, 35, 51, .34);
+      outline-offset: 3px;
+    }
+
+    .primary, button {
+      background: var(--cherry);
+      color: #fff;
+      box-shadow: 0 16px 38px rgba(143, 35, 51, .28);
+    }
+
+    .primary:hover, button:hover { background: var(--cherry-dark); }
+
+    .secondary {
+      background: rgba(255, 247, 232, .72);
+      border: 1px solid var(--line);
+      color: var(--cocoa);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
+      margin: 0;
+    }
+
+    .hero-facts div,
+    .product-card,
+    .city-grid article,
+    .preorder-card,
+    .note-card {
+      background: rgba(255, 247, 232, .78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-facts div {
+      position: relative;
+      overflow: hidden;
+      min-height: 8.5rem;
+      padding: 1rem;
+    }
+
+    .hero-facts div::after {
+      content: "";
+      position: absolute;
+      right: -.9rem;
+      bottom: -.9rem;
+      width: 3.8rem;
+      aspect-ratio: 1;
+      border: 1px dashed rgba(45, 27, 19, .18);
+      border-radius: 50%;
+      background: rgba(229, 182, 111, .22);
+    }
+
+    .hero-facts dt {
+      font-family: "Literata", serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--cherry);
+    }
+
+    .hero-facts dd {
+      margin: .45rem 0 0;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .image-slot {
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 32% 28%, #f8d083 0 16%, transparent 17%),
+        radial-gradient(circle at 60% 58%, #d99742 0 25%, transparent 26%),
+        radial-gradient(circle at 76% 24%, rgba(143, 35, 51, .42) 0 6%, transparent 7%),
+        linear-gradient(135deg, #fff3d8, #dca658 64%, #a75f2b);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .image-slot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      transition: transform .5s ease, opacity .2s ease;
+    }
+
+    .image-slot:hover img { transform: scale(1.025); }
+
+    .image-slot.is-missing img { display: none; }
+
+    .image-slot::before,
+    .image-slot::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .image-slot::before {
+      inset: 10% 12% auto auto;
+      width: 43%;
+      aspect-ratio: 1;
+      background:
+        radial-gradient(circle at 60% 38%, rgba(255,255,255,.38), transparent 12%),
+        rgba(143, 35, 51, .19);
+    }
+
+    .image-slot::after {
+      left: -13%;
+      bottom: -12%;
+      width: 55%;
+      aspect-ratio: 1;
+      border: 2px dashed rgba(255, 247, 232, .58);
+      background: rgba(255, 247, 232, .28);
+    }
+
+    .image-slot.is-missing .fallback-label { opacity: 1; transform: translateY(0); }
+
+    .fallback-label {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 2;
+      margin: 0;
+      padding: .75rem .9rem;
+      border-radius: 999px;
+      background: rgba(45, 27, 19, .7);
+      color: #fff;
+      font-size: .92rem;
+      font-weight: 900;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(.4rem);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .hero-image {
+      min-height: clamp(420px, 60vw, 650px);
+      transform: rotate(2deg);
+    }
+
+    .hero-image figcaption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 3;
+      margin: 0;
+      padding: .8rem 1rem;
+      border-radius: 999px;
+      background: rgba(45, 27, 19, .74);
+      color: #fff;
+      font-weight: 900;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .image-tape {
+      position: absolute;
+      top: .85rem;
+      left: 50%;
+      z-index: 4;
+      width: 8rem;
+      height: 2.15rem;
+      border: 1px solid rgba(45, 27, 19, .1);
+      background: rgba(255, 247, 232, .72);
+      box-shadow: 0 10px 20px rgba(72, 35, 18, .1);
+      transform: translateX(-50%) rotate(-3deg);
+    }
+
+    .menu-section {
+      position: relative;
+    }
+
+    .section-kicker {
+      max-width: 42rem;
+      margin: 1rem 0 0;
+    }
+
+    .product-grid,
+    .mission-section,
+    .delivery-section,
+    .preorder-section {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+      align-items: center;
+    }
+
+    .product-grid {
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .product-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 1rem;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px) rotate(-.35deg);
+      box-shadow: 0 30px 72px rgba(72, 35, 18, .22);
+    }
+
+    .product-card.healthy { border-color: rgba(111, 139, 85, .46); }
+
+    .product-card.healthy h3 { color: #526c3a; }
+
+    .product-card.classic { border-color: rgba(143, 35, 51, .32); }
+
+    .product-card.classic h3 { color: var(--cherry); }
+
+    .product-image {
+      min-height: 255px;
+      margin: 0 0 1.2rem;
+      border-radius: 26px;
+    }
+
+    .product-card p { margin-bottom: 0; }
+
+    .menu-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: auto;
+      padding-top: 1.1rem;
+    }
+
+    .menu-tags span,
+    .addons span {
+      border: 1px dashed rgba(45, 27, 19, .28);
+      border-radius: 999px;
+      padding: .55rem .85rem;
+      background: rgba(255, 247, 232, .55);
+      font-size: .92rem;
+      font-weight: 900;
+    }
+
+    .addons {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .addons span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.1rem;
+      text-align: center;
+    }
+
+    .mission-section {
+      position: relative;
+      gap: clamp(1.4rem, 4vw, 4rem);
+    }
+
+    .mission-section::before {
+      content: "Купуєш млинці - підтримуєш людей";
+      position: absolute;
+      right: 0;
+      top: 2.5rem;
+      color: rgba(143, 35, 51, .13);
+      font-family: "Literata", serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: .86;
+      max-width: 7ch;
+      pointer-events: none;
+    }
+
+    .mission-section > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .mission-image,
+    .delivery-image { min-height: 390px; }
+
+    .mission-list {
+      display: grid;
+      gap: .65rem;
+      margin: 1.35rem 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .mission-list li {
+      position: relative;
+      padding-left: 1.8rem;
+      font-weight: 800;
+    }
+
+    .mission-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .42rem;
+      width: .9rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--cherry);
+      box-shadow: inset 0 0 0 4px rgba(255, 247, 232, .72);
+    }
+
+    .note-card {
+      margin-top: 1.4rem;
+      padding: 1rem;
+      border-style: dashed;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .delivery-section {
+      gap: clamp(1.4rem, 4vw, 4rem);
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: .78rem;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      position: relative;
+      padding: 1rem 1rem 1rem 4.15rem;
+      border-left: 5px solid var(--caramel);
+      border-radius: 18px;
+      background: rgba(255, 247, 232, .68);
+      color: var(--muted);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: .95rem;
+      top: .9rem;
+      display: grid;
+      place-items: center;
+      width: 2.2rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--cocoa);
+      color: var(--paper);
+      font: 800 .8rem "Literata", serif;
+    }
+
+    .steps strong {
+      color: var(--cocoa);
+      font-weight: 900;
+    }
+
+    .city-section {
+      position: relative;
+      padding-top: clamp(3rem, 6vw, 5rem);
+    }
+
+    .city-section::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(45, 27, 19, .26), transparent);
+    }
+
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .85rem;
+      margin-top: 2rem;
+    }
+
+    .city-grid article {
+      position: relative;
+      min-height: 13rem;
+      padding: 1.25rem;
+      overflow: hidden;
+    }
+
+    .city-grid article::after {
+      content: "";
+      position: absolute;
+      right: -2.2rem;
+      bottom: -2.2rem;
+      width: 7rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(229, 182, 111, .28);
+      box-shadow: inset 0 0 0 12px rgba(255, 247, 232, .28);
+    }
+
+    .city-grid h3 { font-size: clamp(1.45rem, 2.4vw, 2rem); }
+
+    .city-grid p { margin-bottom: 0; }
+
+    .preorder-section {
+      position: relative;
+      width: min(1180px, calc(100% - 2rem));
+      margin-bottom: 4rem;
+      padding: clamp(2rem, 6vw, 4rem);
+      overflow: hidden;
+      border: 1px solid rgba(255, 247, 232, .2);
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 92% 18%, rgba(229, 182, 111, .24), transparent 18rem),
+        radial-gradient(circle at 7% 84%, rgba(143, 35, 51, .42), transparent 20rem),
+        linear-gradient(135deg, #2d1b13, #442316 62%, #25130e);
+      color: #fff;
+      box-shadow: 0 34px 90px rgba(45, 27, 19, .28);
+    }
+
+    .preorder-section::after {
+      content: "";
+      position: absolute;
+      right: -5rem;
+      bottom: -6rem;
+      width: 20rem;
+      aspect-ratio: 1;
+      border: 2px dashed rgba(255, 247, 232, .26);
+      border-radius: 50%;
+    }
+
+    .preorder-section .eyebrow,
+    .preorder-section h2,
+    .preorder-section p,
+    .preorder-section small { position: relative; z-index: 1; }
+
+    .preorder-section .eyebrow { color: #f0c777; }
+
+    .preorder-section p { color: rgba(255, 255, 255, .76); }
+
+    .preorder-section small {
+      display: block;
+      max-width: 33rem;
+      color: rgba(255, 255, 255, .63);
+    }
+
+    .preorder-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: .9rem;
+      padding: 1rem;
+      color: var(--cocoa);
+      background: rgba(255, 247, 232, .93);
+    }
+
+    label {
+      display: grid;
+      gap: .35rem;
+      font-weight: 900;
+    }
+
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: .95rem 1rem;
+      background: #fff;
+      color: var(--cocoa);
+      font: inherit;
+    }
+
+    input::placeholder { color: rgba(118, 95, 80, .58); }
+
+    .form-note {
+      margin: .15rem 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 2rem clamp(1rem, 4vw, 4rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .site-footer p { margin: 0; }
+
+    .site-footer a {
+      color: var(--cherry);
+      font-weight: 900;
+      text-decoration-thickness: 2px;
+      text-underline-offset: .18em;
+    }
+
+    [data-reveal] {
+      animation: riseIn .72s ease both;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .product-grid,
+      .mission-section,
+      .delivery-section,
+      .preorder-section {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 4rem;
+      }
+
+      .hero::before { display: none; }
+
+      .hero-image { transform: none; }
+
+      h1, h2 { max-width: 100%; }
+
+      .addons { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+      .mission-section::before {
+        top: auto;
+        bottom: 2rem;
+        font-size: clamp(3rem, 15vw, 6rem);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+        font-size: .9rem;
+      }
+
+      .section, .hero {
+        width: min(100% - 1rem, 1180px);
+        padding: 3rem 0;
+      }
+
+      .hero-actions { flex-direction: column; }
+
+      .button, button { width: 100%; }
+
+      .hero-facts,
+      .addons,
+      .city-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-facts div { min-height: auto; }
+
+      .image-slot {
+        min-height: 240px;
+        border-radius: 24px;
+      }
+
+      .hero-image { min-height: 390px; }
+
+      .mission-image,
+      .delivery-image { min-height: 300px; }
+
+      .steps li { padding-left: 3.8rem; }
+
+      .city-grid article { min-height: auto; }
+
+      .preorder-section {
+        width: min(100% - 1rem, 1180px);
+        margin-bottom: 2rem;
+        border-radius: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до змісту</a>
+  <header class="site-header" aria-label="Головна навігація">
+    <a class="brand" href="#top" aria-label="Добрі млинці, головна">Добрі млинці</a>
+    <nav aria-label="Розділи сторінки">
+      <a href="#menu">Меню</a>
+      <a href="#mission">Місія</a>
+      <a href="#delivery">Доставка</a>
+      <a href="#city">Франківськ</a>
+      <a href="#preorder">Передзамовлення</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Івано-Франківськ · запуск доставки</p>
+        <h1 id="hero-title">Добрі млинці, які роблять добре.</h1>
+        <p class="hero-lead">Готуємо млинці для доставки містом: Healthy без лактози й без цукру, домашня Класика та додатки до кожного настрою. Спершу збираємо передзамовлення, щоб запуск був чесним і потрібним місту.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#preorder">Передзамовити запуск</a>
+          <a class="button secondary" href="#mission">Дізнатись про місію</a>
+        </div>
+        <dl class="hero-facts" aria-label="Ключові переваги">
+          <div><dt>2</dt><dd>лінійки: Healthy і Класика</dd></div>
+          <div><dt>55+</dt><dd>адаптовані робочі місця</dd></div>
+          <div><dt>IF</dt><dd>доставка по Франківську</dd></div>
+        </dl>
+      </div>
+      <figure class="image-slot hero-image" data-src="assets/images/hero-mlyntsi-delivery.jpg" data-reveal style="--delay: .12s">
+        <span class="image-tape" aria-hidden="true"></span>
+        <img src="assets/images/hero-mlyntsi-delivery.jpg" alt="Теплі млинці з ягодами, соусами та пакуванням для доставки">
+        <p class="fallback-label" aria-hidden="true">Теплий слот для hero-фото</p>
+        <figcaption>Млинці, соуси й додатки у форматі передзамовлення.</figcaption>
+      </figure>
+    </section>
+
+    <section id="menu" class="section menu-section" aria-labelledby="menu-title">
+      <p class="eyebrow">Меню на старті</p>
+      <h2 id="menu-title">Дві лінійки, щоб було і легко, і як вдома.</h2>
+      <p class="section-kicker">Ми не робимо нескінченне меню. Стартуємо з чітких смаків, які легко готувати партіями, зручно пакувати й приємно замовляти додому, в офіс або для родини.</p>
+
+      <div class="product-grid">
+        <article class="product-card healthy" data-reveal>
+          <figure class="image-slot product-image" data-src="assets/images/healthy-line.jpg">
+            <img src="assets/images/healthy-line.jpg" alt="Млинці без лактози та без цукру з ягодами і фруктовим соусом">
+            <p class="fallback-label" aria-hidden="true">Healthy: ягоди, фрукти, легкі соуси</p>
+          </figure>
+          <h3>Healthy</h3>
+          <p>Безлактозне молоко, без доданого цукру, ягоди, фрукти, безлактозна сирна маса, веган-сир, хумус і легкі соуси. Здоровіше, але без холодної аптечної подачі.</p>
+          <div class="menu-tags" aria-label="Healthy інгредієнти">
+            <span>без лактози</span>
+            <span>без цукру</span>
+            <span>ягоди</span>
+          </div>
+        </article>
+
+        <article class="product-card classic" data-reveal style="--delay: .08s">
+          <figure class="image-slot product-image" data-src="assets/images/classic-line.jpg">
+            <img src="assets/images/classic-line.jpg" alt="Класичні солодкі та солоні млинці з шоколадом і сирною начинкою">
+            <p class="fallback-label" aria-hidden="true">Класика: сир, шоколад, солоні начинки</p>
+          </figure>
+          <h3>Класика</h3>
+          <p>Сир солодкий, банан і шоколад, курка з грибами, шинка й сир, вершкові та ягідні соуси для знайомого домашнього смаку. Це млинці, які хочеться замовити ще раз.</p>
+          <div class="menu-tags" aria-label="Класичні смаки">
+            <span>солодкі</span>
+            <span>солоні</span>
+            <span>комбо</span>
+          </div>
+        </article>
+      </div>
+
+      <aside class="addons" aria-label="Додатки до млинців">
+        <span>ягоди</span>
+        <span>соуси без цукру</span>
+        <span>хрусткі топінги</span>
+        <span>смузі</span>
+        <span>кава</span>
+        <span>комбо-набори</span>
+      </aside>
+    </section>
+
+    <section id="mission" class="section mission-section" aria-labelledby="mission-title">
+      <figure class="image-slot mission-image" data-src="assets/images/social-mission-kitchen.jpg" data-reveal>
+        <img src="assets/images/social-mission-kitchen.jpg" alt="Команда млинарні готує та пакує замовлення на кухні">
+        <p class="fallback-label" aria-hidden="true">Кухня, пакування, команда</p>
+      </figure>
+      <div data-reveal style="--delay: .08s">
+        <p class="eyebrow">Соціальна млинарня</p>
+        <h2 id="mission-title">Купуєш млинці - підтримуєш людей у своїй громаді.</h2>
+        <p>Ми плануємо створювати адаптовані робочі місця для людей 55+ та людей з інвалідністю: приготування, фасування, пакування, гнучкі зміни й уважне навчання без поспіху ресторанного залу.</p>
+        <ul class="mission-list">
+          <li>Місцевий продукт із людською історією, а не абстрактна благодійність.</li>
+          <li>Прозора комунікація про склад, алергени й формат роботи.</li>
+          <li>Підстава для партнерств, грантів і довіри франківської спільноти.</li>
+        </ul>
+        <p class="note-card">Соціальна місія не замінює смак. Вона додає причину обрати саме нашу млинарню, коли хочеться теплого замовлення додому.</p>
+      </div>
+    </section>
+
+    <section id="delivery" class="section delivery-section" aria-labelledby="delivery-title">
+      <div data-reveal>
+        <p class="eyebrow">Як це працює</p>
+        <h2 id="delivery-title">Dark kitchen без залу, щоб стартувати швидше й чесніше.</h2>
+        <p class="section-kicker">Модель проста: передзамовлення, приготування партіями, акуратне пакування й коротка міська доставка. Так ми не витрачаємо ресурс на інтер'єр залу, а вкладаємо його в продукт і команду.</p>
+        <ol class="steps">
+          <li><strong>Передзамовлення.</strong> Збираємо попит, улюблені смаки й зручні часові вікна для запуску.</li>
+          <li><strong>Готуємо.</strong> Млинці смажаться партіями під доставку, щоб не стояти зайво на полиці.</li>
+          <li><strong>Пакуємо.</strong> Соуси й додатки їдуть окремо, пакування тримає форму й тепло.</li>
+          <li><strong>Доставляємо.</strong> Фокус на Івано-Франківськ і короткий шлях до клієнта.</li>
+        </ol>
+      </div>
+      <figure class="image-slot delivery-image" data-src="assets/images/delivery-packaging.jpg" data-reveal style="--delay: .08s">
+        <img src="assets/images/delivery-packaging.jpg" alt="Пакування млинців для доставки містом">
+        <p class="fallback-label" aria-hidden="true">Пакування для міської доставки</p>
+      </figure>
+    </section>
+
+    <section id="city" class="section city-section" aria-labelledby="city-title">
+      <p class="eyebrow">Чому Франківськ</p>
+      <h2 id="city-title">Місту потрібна тепла доставка, яка не схожа на ще один фастфуд.</h2>
+      <p class="section-kicker">Івано-Франківськ любить локальні формати, швидкі маршрути й людські історії. Тут є місце для млинців, які підходять сім'ям, студентам, офісам і тим, хто шукає легший раціон.</p>
+      <div class="city-grid">
+        <article data-reveal>
+          <h3>Для ранку</h3>
+          <p>Сніданок або офісний перекус без довгої черги й без важкого фастфудного відчуття.</p>
+        </article>
+        <article data-reveal style="--delay: .06s">
+          <h3>Для родини</h3>
+          <p>Класичні смаки для дітей і дорослих, комбо-набори й додатки, які легко поділити.</p>
+        </article>
+        <article data-reveal style="--delay: .12s">
+          <h3>Для легшого раціону</h3>
+          <p>Безлактозні та безцукрові варіанти без відчуття компромісу або нудної дієти.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="preorder" class="section preorder-section" aria-labelledby="preorder-title">
+      <div data-reveal>
+        <p class="eyebrow">Стартуємо з передзамовлень</p>
+        <h2 id="preorder-title">Хочеш бути серед перших?</h2>
+        <p>Залиш інтерес до запуску, обери лінійку й ми зв'яжемось, коли відкриємо перші вікна доставки. Форма відкриє лист на hello@example.com, бо бекенд на цьому етапі не потрібен.</p>
+        <small>Для партнерів, грантових програм і локальних медіа цей самий контакт підходить для запитів про соціальну місію.</small>
+      </div>
+      <form class="preorder-card" action="mailto:hello@example.com" method="post" enctype="text/plain" data-reveal style="--delay: .08s">
+        <label for="name">Ім'я
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Марія">
+        </label>
+        <label for="phone">Телефон
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+380">
+        </label>
+        <label for="interest">Що цікаво
+          <select id="interest" name="interest">
+            <option>Healthy без лактози / без цукру</option>
+            <option>Класичні млинці</option>
+            <option>Комбо для офісу або родини</option>
+            <option>Партнерство / грант / підтримка</option>
+          </select>
+        </label>
+        <button type="submit">Передзамовити запуск</button>
+        <p class="form-note">Натискання сформує лист із твоїми відповідями. Нічого не надсилається на сервер.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Добрі млинці · соціальна млинарня доставки в Івано-Франківську</p>
+    <a href="mailto:hello@example.com">hello@example.com</a>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.image-slot img').forEach((img) => {
+      const markMissing = () => img.closest('.image-slot')?.classList.add('is-missing');
+
+      img.addEventListener('error', markMissing);
+
+      if (img.complete && img.naturalWidth === 0) {
+        markMissing();
+      }
+    });
+  </script>
+</body>
+</html>
