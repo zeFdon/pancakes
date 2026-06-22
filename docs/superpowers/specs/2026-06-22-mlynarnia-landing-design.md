@@ -33,6 +33,54 @@ Required page sections:
 5. Why Ivano-Frankivsk: local convenience, lack of a focused pancake delivery concept with this social and healthy angle, and suitability for families, students, offices, and health-conscious customers.
 6. Final pre-order section: short form-style block with name, phone, preference, and a strong CTA.
 
+## Generated Image Plan
+
+The landing page should reserve image slots even if final generated assets are not available yet. Generated images should not contain readable text, fake logos, UI elements, or brand names. Text remains real HTML for accessibility and editability.
+
+Recommended image folder: `assets/images/`.
+
+1. Hero image
+
+- File: `assets/images/hero-mlyntsi-delivery.jpg`
+- Placement: first screen, right side on desktop and below the headline on mobile.
+- Aspect ratio: 4:5 or 1:1.
+- Alt text: `Теплі млинці з ягодами, соусами та пакуванням для доставки`.
+- Prompt: `Editorial food photography for a warm Ukrainian local pancake delivery brand, stack of thin crepes and rolled pancakes on cream bakery paper, berry sauce in small ceramic bowls, caramel tones, reusable delivery box without any logo or text, cozy morning light, Ivano-Frankivsk local cafe atmosphere, handmade and premium but approachable, deep cherry and warm cream color palette, shallow depth of field, natural imperfections, no text, no typography, no watermark, no people, high detail, 4:5 vertical composition.`
+
+2. Healthy product line image
+
+- File: `assets/images/healthy-line.jpg`
+- Placement: Healthy card in the product lines section.
+- Aspect ratio: 4:3.
+- Alt text: `Млинці без лактози та без цукру з ягодами і фруктовим соусом`.
+- Prompt: `Bright natural food photo of lactose-free no-sugar crepes, fresh berries, apple puree, light cottage-style lactose-free filling, soft green accents, cream linen, simple ceramic plate, healthy but not sterile, warm local bakery mood, no labels, no text, no logos, no hands, high detail, 4:3 composition.`
+
+3. Classic product line image
+
+- File: `assets/images/classic-line.jpg`
+- Placement: Classic card in the product lines section.
+- Aspect ratio: 4:3.
+- Alt text: `Класичні солодкі та солоні млинці з шоколадом і сирною начинкою`.
+- Prompt: `Comforting classic pancake assortment, Ukrainian crepes with chocolate drizzle, sweet cheese filling, savory mushroom and cheese option, caramelized edges, warm cocoa and cherry accents, placed on rustic bakery paper and ceramic plates, appetizing family-friendly delivery food, no text, no brand logo, no watermark, high detail, 4:3 composition.`
+
+4. Social mission image
+
+- File: `assets/images/social-mission-kitchen.jpg`
+- Placement: social mission section, next to the text about adapted work for people aged 55+ and people with disabilities.
+- Aspect ratio: 16:10 or 4:3.
+- Alt text: `Команда млинарні готує та пакує замовлення на кухні`.
+- Prompt: `Warm documentary-style photo in a small clean dark kitchen, older adult hands carefully packing pancakes into eco containers, inclusive adapted workstation, calm respectful atmosphere, soft morning light, cream and caramel color palette, human and local, focus on hands and process rather than faces, no visible disability stereotypes, no text, no logos, no watermark, high detail, 16:10 composition.`
+
+5. Delivery and packaging image
+
+- File: `assets/images/delivery-packaging.jpg`
+- Placement: delivery model section or final CTA background detail.
+- Aspect ratio: 3:2.
+- Alt text: `Пакування млинців для доставки містом`.
+- Prompt: `Close-up of neat pancake delivery packaging on a warm wooden counter, separate sauce compartments, kraft paper, small thermal delivery bag without logo, subtle blurred city street feeling in background, Ivano-Frankivsk inspired local delivery mood without landmarks, warm cream, caramel, deep cherry accents, no text, no typography, no logos, no watermark, high detail, 3:2 composition.`
+
+If generated images are missing during implementation, use polished CSS placeholders with gradient pancake shapes and keep the same layout dimensions so images can be added later without redesigning the page.
+
 ## Visual Direction
 
 The aesthetic should be warm, local, and memorable. It should feel like bakery paper, caramelized edges, berry jam, handwritten menu marks, and community notice boards, but rendered as a polished modern landing page.
@@ -61,6 +109,8 @@ The page must be responsive for desktop and mobile. Desktop should feel editoria
 
 External fonts may be loaded from Google Fonts. No external image assets are required; the visual character should come from typography, CSS shapes, color, layout, and decorative details.
 
+Generated images are optional assets. If present, they should be referenced from `assets/images/` using the filenames defined in the Generated Image Plan. If absent, the landing page must still look complete through CSS-based placeholders and decorative shapes.
+
 ## Accessibility And Quality
 
 The page must use semantic HTML landmarks and sections. Buttons and links must have clear labels. Text contrast must remain readable on all colored surfaces. Motion should be modest and not required to understand the content.
@@ -76,6 +126,7 @@ The delivered page is successful if it:
 - Clearly explains the delivery concept within the first screen.
 - Makes the social mission visible without overpowering the food offer.
 - Communicates both Healthy and Classic product lines.
+- Provides clear slots for generated landing images, with graceful CSS placeholders if assets are absent.
 - Looks distinctive and intentionally designed rather than template-like.
 - Works by opening `index.html` directly in a browser.
 - Adapts cleanly to mobile and desktop sizes.
