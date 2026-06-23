@@ -844,12 +844,17 @@
     }
 
     @media (max-width: 760px) {
+      :root {
+        --mobile-gutter: clamp(1.35rem, 5vw, 2rem);
+        --mobile-section-space: clamp(4rem, 12vw, 5.5rem);
+      }
+
       .site-header {
         position: sticky;
         top: 0;
         flex-direction: row;
         align-items: center;
-        padding: .8rem 1rem;
+        padding: 1rem var(--mobile-gutter);
       }
 
       .brand {
@@ -1002,7 +1007,25 @@
       }
 
       .hero {
-        padding-top: 2.5rem;
+        padding-top: clamp(4rem, 13vw, 5.5rem);
+        padding-bottom: var(--mobile-section-space);
+      }
+
+      .hero .eyebrow {
+        margin-bottom: clamp(1.25rem, 4vw, 1.8rem);
+      }
+
+      .hero h1 {
+        margin-bottom: clamp(1.35rem, 4.8vw, 2rem);
+      }
+
+      .hero-lead {
+        margin-bottom: clamp(2rem, 7vw, 2.8rem);
+      }
+
+      .hero-actions {
+        gap: clamp(1.15rem, 4vw, 1.6rem);
+        margin: 0 0 clamp(2.8rem, 9vw, 3.8rem);
       }
     }
 
@@ -1013,13 +1036,28 @@
       }
 
       .section, .hero {
-        width: min(100% - 1rem, 1180px);
-        padding: 3rem 0;
+        width: min(100% - (var(--mobile-gutter) * 2), 1180px);
+        padding: var(--mobile-section-space) 0;
+      }
+
+      .hero {
+        padding-top: clamp(4.25rem, 15vw, 6rem);
+      }
+
+      .hero-copy {
+        padding-top: .35rem;
+      }
+
+      .eyebrow {
+        line-height: 1.5;
       }
 
       .hero-actions { flex-direction: column; }
 
-      .button, button { width: 100%; }
+      .button, button {
+        width: 100%;
+        min-height: 3.45rem;
+      }
 
       .hero-facts,
       .addons,
@@ -1044,7 +1082,7 @@
       .city-grid article { min-height: auto; }
 
       .preorder-section {
-        width: min(100% - 1rem, 1180px);
+        width: min(100% - (var(--mobile-gutter) * 2), 1180px);
         margin-bottom: 2rem;
         border-radius: 24px;
       }
