@@ -304,6 +304,12 @@
 
     .primary:hover, button:hover { background: var(--cherry-dark); }
 
+    button:disabled {
+      cursor: wait;
+      opacity: .72;
+      transform: none;
+    }
+
     .secondary {
       background: rgba(255, 247, 232, .72);
       border: 1px solid var(--line);
@@ -845,7 +851,7 @@
 
     @media (max-width: 760px) {
       :root {
-        --mobile-gutter: clamp(1.35rem, 5vw, 2rem);
+        --mobile-gutter: clamp(1.7rem, 6vw, 2.75rem);
         --mobile-section-space: clamp(4rem, 12vw, 5.5rem);
       }
 
@@ -1121,7 +1127,7 @@
       <div class="hero-copy" data-reveal>
         <p class="eyebrow">Івано-Франківськ · запуск доставки</p>
         <h1 id="hero-title">Добрі млинці, які роблять добре.</h1>
-        <p class="hero-lead">Готуємо млинці для доставки містом: Healthy без лактози й без цукру, домашня Класика та додатки до кожного настрою. Спершу збираємо передзамовлення, щоб запуск був чесним і потрібним місту.</p>
+        <p class="hero-lead">Млинці на доставку у Франківську: Healthy, Класика й додатки. Стартуємо з передзамовлень.</p>
         <div class="hero-actions">
           <a class="button primary" href="#preorder">Передзамовити запуск</a>
           <a class="button secondary" href="#mission">Дізнатись про місію</a>
@@ -1143,7 +1149,6 @@
     <section id="menu" class="section menu-section" aria-labelledby="menu-title">
       <p class="eyebrow">Меню на старті</p>
       <h2 id="menu-title">Дві лінійки, щоб було і легко, і як вдома.</h2>
-      <p class="section-kicker">Ми не робимо нескінченне меню. Стартуємо з чітких смаків, які легко готувати партіями, зручно пакувати й приємно замовляти додому, в офіс або для родини.</p>
 
       <div class="product-grid">
         <article class="product-card healthy" data-reveal>
@@ -1245,15 +1250,14 @@
       <div data-reveal>
         <p class="eyebrow">Стартуємо з передзамовлень</p>
         <h2 id="preorder-title">Хочеш бути серед перших?</h2>
-        <p>Залиш інтерес до запуску, обери лінійку й ми зв'яжемось, коли відкриємо перші вікна доставки. Форма відкриє лист на hello@example.com, бо бекенд на цьому етапі не потрібен.</p>
-        <small>Для партнерів, грантових програм і локальних медіа цей самий контакт підходить для запитів про соціальну місію.</small>
+        <p>Залиш контакт — ми повідомимо про перші вікна доставки.</p>
       </div>
-      <form class="preorder-card" action="mailto:hello@example.com" method="post" enctype="text/plain" data-reveal style="--delay: .08s">
+      <form class="preorder-card" data-reveal style="--delay: .08s">
         <label for="name">Ім'я
-          <input id="name" name="name" type="text" autocomplete="name" placeholder="Марія">
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Марія" required>
         </label>
         <label for="phone">Телефон
-          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+380">
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+380" required>
         </label>
         <label for="interest">Що цікаво
           <select id="interest" name="interest">
@@ -1264,7 +1268,7 @@
           </select>
         </label>
         <button type="submit">Передзамовити запуск</button>
-        <p class="form-note">Натискання сформує лист із твоїми відповідями. Нічого не надсилається на сервер.</p>
+        <p class="form-note" aria-live="polite">Заявка потрапить у Google Таблицю.</p>
       </form>
     </section>
   </main>
@@ -1275,6 +1279,8 @@
   </footer>
 
   <script>
+    const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbx7l01Gsp_lVpy7CA69o-D0tHutx0EsAVgUFRkXzRSGp4xDxjg4B6k74THfkXkQ-PQ8/exec';
+
     document.querySelectorAll('.image-slot img').forEach((img) => {
       const markMissing = () => img.closest('.image-slot')?.classList.add('is-missing');
 
@@ -1358,6 +1364,58 @@
     window.addEventListener('resize', () => {
       if (!mobileMenuQuery.matches) {
         setMenuOpen(false, { returnFocus: true });
+      }
+    });
+
+    const preorderForm = document.querySelector('.preorder-card');
+    const formNote = preorderForm?.querySelector('.form-note');
+    const submitButton = preorderForm?.querySelector('button[type="submit"]');
+
+    preorderForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!GOOGLE_SHEETS_WEB_APP_URL) {
+        if (formNote) {
+          formNote.textContent = 'Додай Google Apps Script Web App URL у GOOGLE_SHEETS_WEB_APP_URL.';
+        }
+
+        return;
+      }
+
+      const formData = new FormData(preorderForm);
+      formData.append('submittedAt', new Date().toISOString());
+      formData.append('source', 'landing');
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Надсилаємо...';
+      }
+
+      if (formNote) {
+        formNote.textContent = 'Надсилаємо заявку...';
+      }
+
+      try {
+        await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData,
+        });
+
+        preorderForm.reset();
+
+        if (formNote) {
+          formNote.textContent = 'Дякуємо! Заявку збережено.';
+        }
+      } catch (error) {
+        if (formNote) {
+          formNote.textContent = 'Не вдалося надіслати заявку. Спробуй ще раз.';
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Передзамовити запуск';
+        }
       }
     });
   </script>
