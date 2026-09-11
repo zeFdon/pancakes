@@ -1,4 +1,5 @@
 const SHEET_NAME = 'Заявки';
+const HEADERS = ['Дата', "Ім'я", 'Телефон', 'Інтерес', 'Відгук', 'Джерело', 'Час з форми'];
 
 function doPost(event) {
   const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
@@ -8,9 +9,7 @@ function doPost(event) {
     sheet = spreadsheet.insertSheet(SHEET_NAME);
   }
 
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['Дата', "Ім'я", 'Телефон', 'Інтерес', 'Відгук', 'Джерело', 'Час з форми']);
-  }
+  ensureHeaders(sheet);
 
   const data = event.parameter;
 
@@ -27,4 +26,25 @@ function doPost(event) {
   return ContentService
     .createTextOutput(JSON.stringify({ ok: true }))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+// Пише шапку в порожній лист або додає колонку «Відгук» у старий лист без неї.
+function ensureHeaders(sheet) {
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(HEADERS);
+    return;
+  }
+
+  const lastColumn = Math.max(sheet.getLastColumn(), 1);
+  const current = sheet.getRange(1, 1, 1, lastColumn).getValues()[0];
+
+  if (current.indexOf('Відгук') !== -1) {
+    return;
+  }
+
+  const interestIndex = current.indexOf('Інтерес');
+  const insertAfter = interestIndex === -1 ? lastColumn : interestIndex + 1;
+
+  sheet.insertColumnAfter(insertAfter);
+  sheet.getRange(1, insertAfter + 1).setValue('Відгук');
 }
