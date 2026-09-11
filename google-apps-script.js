@@ -9,7 +9,7 @@ function doPost(event) {
   }
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['Дата', "Ім'я", 'Телефон', 'Інтерес', 'Джерело', 'Час з форми']);
+    sheet.appendRow(['Дата', "Ім'я", 'Телефон', 'Інтерес', 'Відгук', 'Джерело', 'Час з форми']);
   }
 
   const data = event.parameter;
@@ -19,6 +19,7 @@ function doPost(event) {
     data.name || '',
     data.phone || '',
     data.interest || '',
+    data.feedback || '',
     data.source || '',
     data.submittedAt || '',
   ]);

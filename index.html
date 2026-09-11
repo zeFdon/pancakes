@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Добрі млинці | Млинарня Івано-Франківськ</title>
+  <title>Своя млинарня | Млинці з доставкою в Івано-Франківську</title>
   <meta name="description" content="Передзамовлення запуску теплої млинарні з доставкою млинців в Івано-Франківську: healthy-лінійка, класика та соціальна місія.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -773,7 +773,7 @@
       font-weight: 900;
     }
 
-    input, select {
+    input, select, textarea {
       width: 100%;
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
@@ -783,7 +783,13 @@
       font: inherit;
     }
 
-    input::placeholder { color: rgba(118, 95, 80, .58); }
+    textarea {
+      min-height: 6.5rem;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    input::placeholder, textarea::placeholder { color: rgba(118, 95, 80, .58); }
 
     .form-note {
       margin: .15rem 0 0;
@@ -1106,7 +1112,7 @@
 <body>
   <a class="skip-link" href="#main">Перейти до змісту</a>
   <header class="site-header" aria-label="Головна навігація">
-    <a class="brand" href="#top" aria-label="Добрі млинці, головна">Добрі млинці</a>
+    <a class="brand" href="#top" aria-label="Своя млинарня, головна">Своя млинарня</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="nav-toggle__text">Меню</span>
       <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
@@ -1126,7 +1132,7 @@
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="hero-copy" data-reveal>
         <p class="eyebrow">Івано-Франківськ · запуск доставки</p>
-        <h1 id="hero-title">Добрі млинці, які роблять добре.</h1>
+        <h1 id="hero-title">Своя млинарня — млинці, які роблять добре.</h1>
         <p class="hero-lead">Млинці на доставку у Франківську: Healthy, Класика й додатки. Стартуємо з передзамовлень.</p>
         <div class="hero-actions">
           <a class="button primary" href="#preorder">Передзамовити запуск</a>
@@ -1267,6 +1273,9 @@
             <option>Партнерство / грант / підтримка</option>
           </select>
         </label>
+        <label for="feedback">Лишіть свої думки і зворотній зв’язок, для Марічки це дуже важливо✨
+          <textarea id="feedback" name="feedback" rows="3" placeholder="Що б ви хотіли побачити в меню або сервісі?"></textarea>
+        </label>
         <button type="submit">Передзамовити запуск</button>
         <p class="form-note" aria-live="polite">Заявка потрапить у Google Таблицю.</p>
       </form>
@@ -1274,7 +1283,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>Добрі млинці · соціальна млинарня доставки в Івано-Франківську</p>
+    <p>Своя млинарня · соціальна млинарня доставки в Івано-Франківську</p>
     <a href="mailto:hello@example.com">hello@example.com</a>
   </footer>
 
